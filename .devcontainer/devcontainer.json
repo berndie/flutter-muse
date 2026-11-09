@@ -1,0 +1,50 @@
+// .devcontainer/devcontainer.json
+{
+  "name": "Flutter + Android SDK (Muse wrapper)",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+
+  "features": {
+    // Gradle / Android Gradle Plugin need JDK 17
+    "ghcr.io/devcontainers/features/java:1": { "version": "17" },
+    // Needed by the Claude Code feature
+    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
+  },
+
+  "mounts": [
+    // Flutter SDK and Android SDK are large; keep them between rebuilds
+    "source=flutter-sdk,target=/home/vscode/flutter,type=volume",
+    "source=android-sdk,target=/home/vscode/android-sdk,type=volume",
+    // Keep Gradle and pub download caches between rebuilds
+    "source=gradle-cache,target=/home/vscode/.gradle,type=volume",
+    "source=pub-cache,target=/home/vscode/.pub-cache,type=volume",
+    // Claude mount
+    "source=claude-code-config-${devcontainerId},target=/home/vscode/.claude,type=volume"
+  ],
+
+  "containerEnv": {
+    "ANDROID_HOME": "/home/vscode/android-sdk",
+    "ANDROID_SDK_ROOT": "/home/vscode/android-sdk",
+    "FLUTTER_ROOT": "/home/vscode/flutter",
+    "PUB_CACHE": "/home/vscode/.pub-cache",
+    // Keep Claude Code's whole config (incl. .claude.json) in the volume
+    "CLAUDE_CONFIG_DIR": "/home/vscode/.claude"
+  },
+
+  "remoteEnv": {
+    "PATH": "${containerEnv:PATH}:/home/vscode/flutter/bin:/home/vscode/.pub-cache/bin:/home/vscode/android-sdk/cmdline-tools/latest/bin:/home/vscode/android-sdk/platform-tools"
+  },
+
+  // Fixes volume ownership, installs Android SDK + Flutter (only the first
+  // time, since they live in volumes), accepts licenses, runs pub get.
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+
+  // USB access so adb can reach a physical Android device
+  "runArgs": [
+    "--device-cgroup-rule=c 189:* rmw",
+    "-v",
+    "/dev/bus/usb:/dev/bus/usb"
+  ],
+
+  "remoteUser": "vscode"
+}

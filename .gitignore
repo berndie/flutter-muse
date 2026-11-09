@@ -1,0 +1,39 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+__pycache__/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+.dart_tool/
+.flutter-plugins-dependencies
+build/
+coverage/
+/pubspec.lock
+
+# Python virtual environments
+.venv
+
+# Proprietary Muse SDK (Interaxon). Never commit it: every developer and
+# user supplies their own copy (see flutter_muse_android/README.md).
+flutter_muse_android/android/libs/
+libmuse_android.jar
+libmuse_android.so
+libmusexon_android.so
+muse_sdk/

@@ -1,0 +1,13 @@
+# Pub workspace for the federated flutter_muse plugin. Run `flutter pub get`
+# here to resolve all packages against each other.
+name: flutter_muse_workspace
+publish_to: none
+
+environment:
+  sdk: ^3.13.7
+
+workspace:
+  - flutter_muse
+  - flutter_muse/example
+  - flutter_muse_platform_interface
+  - flutter_muse_android

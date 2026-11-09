@@ -1,0 +1,18 @@
+name: flutter_muse_platform_interface
+description: "A common platform interface for the flutter_muse plugin (Muse EEG headband SDK)."
+version: 0.0.1
+resolution: workspace
+
+environment:
+  sdk: ^3.13.7
+  flutter: '>=3.3.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  plugin_platform_interface: ^2.1.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0

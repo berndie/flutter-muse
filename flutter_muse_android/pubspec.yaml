@@ -1,0 +1,27 @@
+name: flutter_muse_android
+description: "Android implementation of the flutter_muse plugin (Muse EEG headband SDK). Requires your own copy of the Muse SDK."
+version: 0.0.1
+resolution: workspace
+
+environment:
+  sdk: ^3.13.7
+  flutter: '>=3.3.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_muse_platform_interface: ^0.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  plugin:
+    implements: flutter_muse
+    platforms:
+      android:
+        package: dev.fluttermuse.flutter_muse_android
+        pluginClass: FlutterMusePlugin
+        dartPluginClass: FlutterMuseAndroid

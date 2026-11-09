@@ -1,0 +1,15 @@
+# A .pubignore replaces this directory's .gitignore for `dart pub publish`,
+# so the usual build outputs are listed here as well.
+.dart_tool/
+build/
+.flutter-plugins-dependencies
+*.iml
+android/.gradle/
+android/local.properties
+
+# Proprietary Muse SDK (Interaxon): must not be redistributed with this
+# package. Users supply their own copy (see README.md).
+android/libs/
+libmuse_android.jar
+libmuse_android.so
+libmusexon_android.so

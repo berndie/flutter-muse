@@ -1,0 +1,27 @@
+name: flutter_muse
+description: "Flutter plugin for the Muse SDK (libmuse): discover and connect Muse EEG headbands, stream EEG and sensor data, and record or play back .muse files."
+version: 0.0.1
+resolution: workspace
+
+environment:
+  sdk: ^3.13.7
+  flutter: '>=3.3.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_muse_android: ^0.0.1
+  flutter_muse_platform_interface: ^0.0.1
+  meta: ^1.18.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  plugin_platform_interface: ^2.1.8
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        default_package: flutter_muse_android
