@@ -8,7 +8,7 @@ CMDLINE_TOOLS_VERSION="11076708"
 ANDROID_PACKAGES=(
   "platform-tools"
   "platforms;android-36"
-  "build-tools;36.0.0"
+  "build-tools;36.0.0"  
 )
 
 export ANDROID_HOME="${ANDROID_HOME:-$HOME/android-sdk}"
