@@ -4,7 +4,7 @@ name: flutter_muse_workspace
 publish_to: none
 
 environment:
-  sdk: ^3.13.7
+  sdk: ^3.12.0
 
 workspace:
   - flutter_muse
