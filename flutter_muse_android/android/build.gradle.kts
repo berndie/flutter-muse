@@ -87,6 +87,8 @@ android {
 
     defaultConfig {
         minSdk = 24
+        // Keeps the JNI-bound Muse SDK classes in apps that run R8.
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     testOptions {
